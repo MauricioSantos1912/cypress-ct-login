@@ -10,7 +10,7 @@ describe('template spec', () => {
   })
     it('ct_login__Failed', () => {
      cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-     cy.get("[name='username']").type('TESTE')
+     cy.get("[name='username']").type('TESTE123')
      cy.get("[name='password']").type('TESTE123')
      cy.get("[type='submit']").click()
      cy.get('.oxd-alert')
