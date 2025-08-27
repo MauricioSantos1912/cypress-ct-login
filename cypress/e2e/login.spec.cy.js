@@ -4,33 +4,29 @@ import DashboardPage from '../pages/dashboardPage.js'
 import MenuPage from '../pages/menuPage.js'
 import MyInfoPage from '../pages/myinfoPage.js'
 
-const Chance = require('chance')
-
-const chance = new Chance()
 const loginPage = new LoginPage()
 const dashboardPage = new DashboardPage()
-const menuPage = new MenuPage()
-const myinfoPage = new MyInfoPage()
 
 
-describe('template spec', () => {
 
+describe('Login Orange HRM Teste', () => {
 
-  it('User Info Updat - Success', () => {
-    
+    it('ct_login__Fail', () => {
     loginPage.accessLoginPage()
-    loginPage.loginWithUser(userData.userSuccess.username,userData.userSuccess.password)
-    
-    dashboardPage.checkDashboardPage()
-    
-    menuPage.accessMyInfo()
-   
-    myinfoPage.fillPersonalDatails(chance.first(),chance.string(),chance.last())
-    myinfoPage.fillEmployeeDetails('EmployeeId','OtherID','1995-07-03','2025-08-26')
-    myinfoPage.saveForm()
+    loginPage.loginWithUser(userData.userFail.username,userData.userFail.password)
+    loginPage.checkAcessInvalid()
 
+
+  }) 
 
   
-  })
+    it('ct_login__Success', () => {
+    loginPage.accessLoginPage()
+    loginPage.loginWithUser(userData.userSuccess.username,userData.userSuccess.password)
+    dashboardPage.checkDashboardPage()
+
+
+  }) 
+
 
 })
